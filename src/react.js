@@ -20,8 +20,15 @@ export function createDom(node) {
 // tag, props, children 3속성을 가지는 element 만들기
 export function createElement(tag, props, ...children) {
   props = props || {};
-  
-  return {tag, props, children} ;
+
+  // tag가 함수인지 문자열인지 구분하기
+  // tag의 앞글자가 대문자라면 함수 라는 규칙을 가진다. (실제 React 규칙과 같도록 작성해보기)
+  if (typeof tag === 'function') {
+    return tag(); //함수가 리턴하는 jsx값이 ->  createElement() 함수 호출로 변환되고 -> createElement() 반환 값이 리턴된다.
+  } else {
+    return {tag, props, children} ;
+  }
+
 }
 
 // 어떤 컨테이너만 받고 appendChild() 동작을 숨겨보기

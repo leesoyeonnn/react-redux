@@ -1,16 +1,12 @@
 /* @jsx createElement */
 import {createDom, createElement, render} from './react'; 
 
-// const vdom = createElement('section', {}, 
-//   createElement('h1', {}, 'React 만들기'),
-//   createElement('ul', {}, 
-//     createElement('li', {style: "color: red"}, '첫 번째 아이템'),
-//     createElement('li', {}, '두 번째 아이템'),
-//     createElement('li', {}, '세 번째 아이템')
-//   )
-// );
+function Title() {
+  return <h1>React 잘 만들기</h1>;
+}
 
 const vdom = <section>
+  <Title></Title>
   <h1>React 만들기</h1>
   <ul>
     <li style="color:red">첫 번째 아이템</li>
