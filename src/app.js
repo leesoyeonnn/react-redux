@@ -1,49 +1,24 @@
-import {createDom, createElements, render} from './react'; 
+/* @jsx createElement */
+import {createDom, createElement, render} from './react'; 
 
-// const vdom = {
-//   tag: 'section',
-//   props: {}, 
-//   children: [
-//     {
-//       tag: 'h1',
-//       props: {},
-//       children: ['React 만들기']
-//     },
-//     {
-//       tag: 'ul',
-//       props: {},
-//       children: [
-//         {
-//           tag: 'li',
-//           props: {
-//             style: "color: red",
-//           },
-//           children: ['첫 번째 아이템']
-//         },
-//         {
-//           tag: 'li',
-//           props: {},
-//           children: ['두 번째 아이템']
-//         },
-//         {
-//           tag: 'li',
-//           props: {},
-//           children: ['세 번째 아이템']
-//         }
-//       ]
-//     }
-//   ]
-// }
+// const vdom = createElement('section', {}, 
+//   createElement('h1', {}, 'React 만들기'),
+//   createElement('ul', {}, 
+//     createElement('li', {style: "color: red"}, '첫 번째 아이템'),
+//     createElement('li', {}, '두 번째 아이템'),
+//     createElement('li', {}, '세 번째 아이템')
+//   )
+// );
 
-const vdom = createElements('section', {}, 
-  createElements('h1', {}, 'React 만들기'),
-  createElements('ul', {}, 
-    createElements('li', {style: "color: red"}, '첫 번째 아이템'),
-    createElements('li', {}, '두 번째 아이템'),
-    createElements('li', {}, '세 번째 아이템')
-  )
-);
+const vdom = <section>
+  <h1>React 만들기</h1>
+  <ul>
+    <li style="color:red">첫 번째 아이템</li>
+    <li>두 번째 아이템</li>
+    <li>세 번째 아이템</li>
+  </ul>
+</section>
 
-console.log(vdom)
+console.log(vdom);
 
 render(vdom, document.querySelector('#root'));

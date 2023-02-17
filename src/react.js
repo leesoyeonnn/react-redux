@@ -18,7 +18,9 @@ export function createDom(node) {
 }
 
 // tag, props, children 3속성을 가지는 element 만들기
-export function createElements(tag, props, ...children) {
+export function createElement(tag, props, ...children) {
+  props = props || {};
+  
   return {tag, props, children} ;
 }
 
