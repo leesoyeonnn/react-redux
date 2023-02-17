@@ -21,7 +21,8 @@ function Item(props) {
   return <li style={`color:${ props.color }`}>{ props.children }</li>;
 }
 
-const vdom = <section>
+// vdom은 App은 아니지만 App처럼 메인 컴포넌트 이므로 App 이라는 이름의 함수로 변경해본다.
+const App = () => <section>
   <Title>React 만들기</Title>
   <ul>
     <Item color="pink">첫 번째 아이템</Item>
@@ -30,6 +31,5 @@ const vdom = <section>
   </ul>
 </section>
 
-console.log(vdom);
-
-render(vdom, document.querySelector('#root'));
+// Jsx 문법을 이용해 vdom이 아닌 <App /> 으로 전달한다.
+render(<App />, document.querySelector('#root'));
